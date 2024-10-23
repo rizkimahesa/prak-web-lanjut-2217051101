@@ -59,18 +59,19 @@
 
 <body>
     <div class="profile-container">
-    <img src="{{ asset('upload/img/' . $user->foto) }}" alt="foto-profile">
+        <img src="{{ asset($user->foto) }}" alt="foto-profile">
         <div class="info">
-            <strong>Nama:</strong> <?= $user->nama?>
+            <strong>Nama:</strong> {{ $user->nama }}
         </div>
         <div class="info">
-            <strong>Kelas:</strong> <?= $user->nama_kelas ?? 'Kelas tidak ditemukan' ?>
+            <strong>Kelas:</strong> {{ $user->nama_kelas }}
         </div>
         <div class="info">
-            <strong>NPM:</strong> <?= $user->npm ?>
+            <strong>IPK:</strong> {{ $user->ipk }}
         </div>
-        <button class="bg-red-300 flex w-1/3 font-semibold text-gray-700 text-center rounded-lg"><a href="/user" class="w-full">< Back</a></button>
-    </div>
+        <button class="bg-red-300 flex w-1/3 font-semibold text-gray-700 text-center rounded-lg">
+            <a href="/user" class="w-full">< Back</a>
+        </button>
     </div>
 </body>
 

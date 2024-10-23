@@ -12,12 +12,12 @@ class UserController extends Controller
     public $userModel;
     public $kelasModel;
 
-    public function profile($nama = '', $kelas = '', $npm = '')
+    public function profile($nama = '', $kelas = '', $ipk = '')
     {
         $data = [
             'nama' => $nama,
             'kelas' => $kelas,
-            'npm' => $npm
+            'ipk' => $ipk
         ];
         return view('profile', $data);
     }
@@ -39,7 +39,7 @@ class UserController extends Controller
         // Validasi input
         $request->validate([
             'nama' => 'required|string|max:255',
-            'npm' => 'required|string|max:255',
+            'ipk' => 'required|numeric',
             'kelas_id' => 'required|integer',
             'foto' =>
             'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $this->userModel->create([
             'nama' => $request->input('nama'),
-            'npm' => $request->input('npm'),
+            'ipk' => $request->input('ipk'),
             'kelas_id' => $request->input('kelas_id'),
             'foto' => 'upload/img/'.$filename,
         ]);
@@ -74,8 +74,7 @@ class UserController extends Controller
     }
 
     public function show($id){
-        $user = $this->userModel->getUser($id);
-
+        $user =  $this->userModel->getUser($id);
         $data = [
             'title' => 'Profile',
             'user' => $user,
@@ -92,7 +91,7 @@ class UserController extends Controller
     public function update(Request $request, $id){
         $user = UserModel::findOrFail($id);
         $user->nama = $request->nama;
-        $user->npm = $request->npm;
+        $user->ipk = $request->ipk;
         $user->kelas_id = $request->kelas_id;
 
         if($request->hasFile('foto')){

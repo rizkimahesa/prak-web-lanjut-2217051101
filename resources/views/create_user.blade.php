@@ -12,8 +12,8 @@
         </div>
 
         <div class="form-group">
-            <label for="npm">NPM:</label>
-            <input type="text" id="npm" name="npm" class="form-control" placeholder="Masukkan NPM" required>
+            <label for="npm">IPK:</label>
+            <input type="text" id="ipk" name="ipk" class="form-control" placeholder="Masukkan IPK" required>
         </div>
 
         <div class="form-group">

@@ -13,7 +13,7 @@ class UserModel extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'nama',
-        'npm',
+        'ipk',
         'kelas_id',
         'foto',
     ];
@@ -31,5 +31,6 @@ class UserModel extends Model
         ->first();
         }
         return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')->select('user.*', 'kelas.nama_kelas as nama_kelas')->get();
+        return User::find($id);
     }
 }
