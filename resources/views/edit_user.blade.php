@@ -14,8 +14,8 @@
         </div>
 
         <div class="form-group">
-            <label for="npm">NPM:</label>
-            <input type="text" id="npm" name="npm" class="form-control" value = "{{ old('npm',$user->npm) }}" placeholder="Masukkan NPM" required>
+            <label for="ipk">IPK:</label>
+            <input type="text" id="ipk" name="ipk" class="form-control" value = "{{ old('ipk',$user->ipk) }}" placeholder="Masukkan IPK">
         </div>
 
         <div class="form-group">
